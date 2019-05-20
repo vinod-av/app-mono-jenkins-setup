@@ -1,6 +1,6 @@
 pipelineJob('k8s-deploy') {
 
-  def repo = 'https://vinodA@bitbucket.org/vinodA/app-mono-helmstate.git'
+  def repo = 'https://github.com/vinod-avk/app-mono-helmstate.git'
 
   triggers {
     githubPush()
@@ -13,7 +13,7 @@ pipelineJob('k8s-deploy') {
       scm {
         git {
           remote {
-            credentials('vinod-bitbucket')
+            credentials('vinod-github_crede')
             url(repo)
           }
           branch('master')
@@ -28,7 +28,7 @@ pipelineJob('k8s-deploy') {
 
 pipelineJob('image-orchestrator-job') {
 
-  def repo = 'https://vinodA@bitbucket.org/vinodA/app-mono-orchestrator.git'
+  def repo = 'https://github.com/vinod-avk/app-mono-orchestrator.git'
 
   description("Pipeline for $repo")
 
@@ -38,7 +38,7 @@ pipelineJob('image-orchestrator-job') {
       scm {
         git {
           remote {
-            credentials('vinod-bitbucket')
+            credentials('vinod-github_crede')
             url(repo)
           }
           branch('master')
@@ -52,7 +52,7 @@ pipelineJob('image-orchestrator-job') {
 
 pipelineJob('app-mono-build-job') {
 
-  def repo = 'https://vinodA@bitbucket.org/vinodA/app-mono.git'
+  def repo = 'https://github.com/vinod-avk/app-mono.git'
 
   description("Pipeline for $repo")
 
@@ -62,7 +62,7 @@ pipelineJob('app-mono-build-job') {
       scm {
         git {
           remote {
-            credentials('vinod-bitbucket')
+            credentials('vinod-github_crede')
             url(repo)
           }
           branch('master')
